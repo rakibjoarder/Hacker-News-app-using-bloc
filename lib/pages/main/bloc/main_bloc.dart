@@ -9,15 +9,14 @@ abstract class BaseClass {
 }
 
 class MainBloc extends BaseClass {
-  List<Story> storyList;
-
   MainRepository _mainRepository = new MainRepository();
+  List<StoryModel> storyList;
 
-  final hackerNewsController = BehaviorSubject<List<Story>>();
-  Stream<List<Story>> get getTopNewsStream => hackerNewsController.stream;
-  StreamSink<List<Story>> get newsSink => hackerNewsController.sink;
+  final hackerNewsController = BehaviorSubject<List<StoryModel>>();
+  Stream<List<StoryModel>> get getTopNewsStream => hackerNewsController.stream;
+  StreamSink<List<StoryModel>> get newsSink => hackerNewsController.sink;
 
-  getTopHackerNewsIds() async {
+  getTopHackerNews() async {
     storyList = await _mainRepository.getTopHackerNews();
     newsSink.add(storyList);
   }

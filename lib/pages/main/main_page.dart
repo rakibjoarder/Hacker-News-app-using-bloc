@@ -24,7 +24,7 @@ class _MainPageState extends State<MainPage> {
   void didChangeDependencies() {
     if (mainBloc == null) {
       mainBloc = MainBlocProvider.of(context);
-      mainBloc.getTopHackerNewsIds();
+      mainBloc.getTopHackerNews();
     }
     super.didChangeDependencies();
   }
@@ -43,10 +43,10 @@ class _MainPageState extends State<MainPage> {
         body: RefreshIndicator(
           onRefresh: () async {
             await Future.delayed(Duration(seconds: 4));
-            mainBloc.getTopHackerNewsIds();
+            mainBloc.getTopHackerNews();
             return;
           },
-          child: StreamBuilder<List<Story>>(
+          child: StreamBuilder<List<StoryModel>>(
               stream: mainBloc.getTopNewsStream,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
@@ -70,6 +70,7 @@ class _MainPageState extends State<MainPage> {
         'Hacker News',
         style: TextStyle(color: red),
       ),
+      centerTitle: true,
       actions: <Widget>[
         IconButton(
           icon: Icon(

@@ -9,7 +9,7 @@ class MainApiProvider extends BaseApiProvider {
   static const String _SINGLE_HN_ITEM =
       'https://hacker-news.firebaseio.com/v0/item/';
 
-  getTopHackerNews() async {
+  Future<List<StoryModel>> getTopHackerNews() async {
     try {
       Response response = await getDio().get(_TOPSTORIES);
       if (response.statusCode == 200) {
@@ -24,12 +24,12 @@ class MainApiProvider extends BaseApiProvider {
     }
   }
 
-  Future<Story> getTopNews({id}) async {
+  Future<StoryModel> getTopNews({id}) async {
     try {
       final response =
           await getDio().get(_SINGLE_HN_ITEM + "${id}.json?print=pretty");
       if (response.statusCode == 200) {
-        return Story.fromJson(response.data);
+        return StoryModel.fromJson(response.data);
       }
     } catch (error, stacktrace) {
       debugPrint("Exception occured: $error stackTrace: $stacktrace");

@@ -1,9 +1,6 @@
 import 'package:dio/dio.dart';
 
 class BaseApiProvider {
-  static const String TAG = 'BaseApiProvider';
-
-//  static const String _baseUrl = 'http://hn.algolia.com/api/v1/items/';
   static const String _contentType = 'Content-Type';
 
   Dio _dio;

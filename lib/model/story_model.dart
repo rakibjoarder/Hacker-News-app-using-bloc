@@ -1,4 +1,4 @@
-class Story {
+class StoryModel {
   String by;
   int descendants;
   int id;
@@ -9,7 +9,7 @@ class Story {
   String type;
   String url;
 
-  Story(
+  StoryModel(
       {this.by,
       this.descendants,
       this.id,
@@ -20,7 +20,7 @@ class Story {
       this.type,
       this.url});
 
-  Story.fromJson(Map<String, dynamic> json) {
+  StoryModel.fromJson(Map<String, dynamic> json) {
     by = json['by'];
     descendants = json['descendants'];
     id = json['id'];

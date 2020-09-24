@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:hacker_news/model/news_details_model.dart';
-import 'package:hacker_news/repository/details_repository.dart';
+import 'package:hacker_news/model/comment_model.dart';
+import 'package:hacker_news/repository/commets_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 abstract class BaseClass {
@@ -9,18 +9,19 @@ abstract class BaseClass {
 }
 
 class DetailsBloc extends BaseClass {
-  DetailsRepository _mainRepository = new DetailsRepository();
+  CommentsRepository _mainRepository = new CommentsRepository();
 
-  final newsDetailsController = BehaviorSubject<NewsDetailsModel>();
-  Stream<NewsDetailsModel> get getNewsDeatilsStream =>
+  final newsDetailsController = BehaviorSubject<List<CommentsModel>>();
+  Stream<List<CommentsModel>> get getNewsDeatilsStream =>
       newsDetailsController.stream;
-  StreamSink<NewsDetailsModel> get newsDetailsSink =>
+  StreamSink<List<CommentsModel>> get newsDetailsSink =>
       newsDetailsController.sink;
 
-  NewsDetailsModel newsModel = new NewsDetailsModel();
-  getTopHackerNews() async {
-    newsModel = await _mainRepository.getNewsDetails();
-    newsDetailsSink.add(newsModel);
+  Future<List<CommentsModel>> getAllComments({commentsId}) async {
+    List<CommentsModel> commentList =
+        await _mainRepository.getAllComments(commentsId: commentsId);
+    print(commentList);
+    newsDetailsSink.add(commentList);
   }
 
   @override

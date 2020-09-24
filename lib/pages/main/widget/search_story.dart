@@ -5,7 +5,7 @@ import 'package:hacker_news/utils/constant.dart';
 import 'listItem.dart';
 
 class SearchStoryDelegate extends SearchDelegate<String> {
-  List<Story> storyList;
+  List<StoryModel> storyList;
   SearchStoryDelegate({this.storyList});
 
   @override
@@ -55,7 +55,7 @@ class SearchStoryDelegate extends SearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    List<Story> suggestions = query.isEmpty
+    List<StoryModel> suggestions = query.isEmpty
         ? storyList
         : storyList
             .where((data) =>

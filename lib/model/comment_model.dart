@@ -1,41 +1,32 @@
-class NewsDetailsModel {
+class CommentsModel {
   int id;
   String createdAt;
   int createdAtI;
   String type;
   String author;
-  String title;
-  var url;
   String text;
-  int points;
-  var parentId;
-  var storyId;
+  int parentId;
+  int storyId;
   List<Children> children;
 
-  NewsDetailsModel(
+  CommentsModel(
       {this.id,
       this.createdAt,
       this.createdAtI,
       this.type,
       this.author,
-      this.title,
-      this.url,
       this.text,
-      this.points,
       this.parentId,
       this.storyId,
       this.children});
 
-  NewsDetailsModel.fromJson(Map<String, dynamic> json) {
+  CommentsModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     createdAt = json['created_at'];
     createdAtI = json['created_at_i'];
     type = json['type'];
     author = json['author'];
-    title = json['title'];
-    url = json['url'];
     text = json['text'];
-    points = json['points'];
     parentId = json['parent_id'];
     storyId = json['story_id'];
     if (json['children'] != null) {
@@ -53,10 +44,7 @@ class NewsDetailsModel {
     data['created_at_i'] = this.createdAtI;
     data['type'] = this.type;
     data['author'] = this.author;
-    data['title'] = this.title;
-    data['url'] = this.url;
     data['text'] = this.text;
-    data['points'] = this.points;
     data['parent_id'] = this.parentId;
     data['story_id'] = this.storyId;
     if (this.children != null) {
@@ -73,10 +61,7 @@ class Children {
   int createdAtI;
   String type;
   String author;
-  var title;
-  var url;
   String text;
-  var points;
   int parentId;
   int storyId;
   List<Children> children;
@@ -87,10 +72,7 @@ class Children {
       this.createdAtI,
       this.type,
       this.author,
-      this.title,
-      this.url,
       this.text,
-      this.points,
       this.parentId,
       this.storyId,
       this.children});
@@ -101,10 +83,7 @@ class Children {
     createdAtI = json['created_at_i'];
     type = json['type'];
     author = json['author'];
-    title = json['title'];
-    url = json['url'];
     text = json['text'];
-    points = json['points'];
     parentId = json['parent_id'];
     storyId = json['story_id'];
     if (json['children'] != null) {
@@ -122,16 +101,12 @@ class Children {
     data['created_at_i'] = this.createdAtI;
     data['type'] = this.type;
     data['author'] = this.author;
-    data['title'] = this.title;
-    data['url'] = this.url;
     data['text'] = this.text;
-    data['points'] = this.points;
     data['parent_id'] = this.parentId;
     data['story_id'] = this.storyId;
     if (this.children != null) {
       data['children'] = this.children.map((v) => v.toJson()).toList();
     }
-
     return data;
   }
 }
