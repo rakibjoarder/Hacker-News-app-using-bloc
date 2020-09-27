@@ -1,4 +1,4 @@
-# flutter_circular_reveal
+# Hacker News App
 
 Hacker News App using Bloc (flutter).
 
