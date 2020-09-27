@@ -6,7 +6,7 @@ Hacker News App using Bloc (flutter).
 Screenshot
 </p>
 <p align="center">
-  <img src="assets/image1 4.jpeg.gif" width="250"/>
+  <img src="assets/image1 4.jpeg" width="250"/>
 </p>
 
 ## Hacker News app with the following features.
