@@ -1,0 +1,4 @@
+#Fri Sep 25 15:55:53 BDT 2020
+base.0=/Users/rakibjoarder/Flutter Projects/hacker_news/build/app/intermediates/transforms/r8/release/0/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
